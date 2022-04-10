@@ -16,56 +16,56 @@ export const categories = [
 export const notes = [
     {
         id: chance.guid(),
-        name: "The name",
+        name: "The name 1",
         created: new Date(Date.now()),
         category: 1, // id of category
         content: "Something something 01/11/2020"
     },
     {
         id: chance.guid(),
-        name: "The name",
+        name: "The name 2",
+        created: new Date(Date.now()),
+        category: 2, // id of category
+        content: "Something something 01/11/2020"
+    },
+    {
+        id: chance.guid(),
+        name: "The name 3",
         created: new Date(Date.now()),
         category: 1, // id of category
         content: "Something something 01/11/2020"
     },
     {
         id: chance.guid(),
-        name: "The name",
+        name: "The name 4",
         created: new Date(Date.now()),
         category: 1, // id of category
         content: "Something something 01/11/2020"
     },
     {
         id: chance.guid(),
-        name: "The name",
-        created: new Date(Date.now()),
-        category: 1, // id of category
-        content: "Something something 01/11/2020"
-    },
-    {
-        id: chance.guid(),
-        name: "The name",
+        name: "The name 5",
         created: new Date(Date.now()),
         category: 2, // id of category
         content: "Something something 01/11/2020 and something on 02/02/2022"
     },
     {
         id: chance.guid(),
-        name: "The name",
+        name: "The name 5",
         created: new Date(Date.now()),
         category: 0, // id of category
         content: "Something something 01/11/2020"
     },
     {
         id: chance.guid(),
-        name: "The name",
+        name: "The name 6",
         created: new Date(Date.now()),
         category: 1, // id of category
         content: "Something something 01/11/2020"
     },
     {
         id: "0",
-        name: "The name",
+        name: "The name 10",
         created: new Date(Date.now()),
         category: 1, // id of category
         content: "Something something 01/11/2020"
