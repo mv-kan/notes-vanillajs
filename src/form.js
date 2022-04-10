@@ -6,6 +6,8 @@ export function addNoteHandler(e) {
     var category = document.getElementById("category").value
     var name = document.getElementById("name").value
     addNoteNow(name, parseInt(category), content)
+    document.getElementById("content").value = ""
+    document.getElementById("name").value = ""
     updateAllNotes()
     e.preventDefault();
 }
