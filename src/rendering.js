@@ -18,25 +18,27 @@ export function getNoteHTML(id) {
         const content = note.content.length > 25 ? note.content.slice(0, 22) + '...' : note.content
         const dates = detectDates(note.content).map((date) => dateToString(date)).join(", ")
         return `
-        <div class="note js-note" id="${note.id}">
-            <span class="note__field">${note.name}</span>
-            <span class="note__field">${dateToString(note.created)}</span>
-            <span class="note__field note__field--content">${content}</span>
-            <span class="note__field">${categories.find((c) => c.id === note.category).name}</span>
-            <span class="note__field">${dates}</span>
-            ${!isArchived(id) ?
-                `<div class="note__btn">
-                <button class="btn btn-primary btn-archive js-btn-archive">Archive</button>
-            </div>`:
-                `<div class="note__btn">
-                <button class="btn btn-primary btn-archive js-btn-unarchive">Unarchive</button>
-            </div>`}
-            
-            <div class="note__btn">
-                <button class="btn btn-primary js-btn-edit">View</button>
-            </div>
-            <div class="note__btn">
-                <button class="btn btn-danger js-btn-remove">Remove</button>
+        <div class="note js-note " id="${note.id}">
+            <span class="note__field bg-light">${note.name}</span>
+            <span class="note__field bg-light">${dateToString(note.created)}</span>
+            <span class="note__field bg-light note__field--content">${content}</span>
+            <span class="note__field bg-light">${categories.find((c) => c.id === note.category).name}</span>
+            <span class="note__field bg-light">${dates}</span>
+            <div class="note__buttons bg-light">
+                ${!isArchived(id) ?
+                    `<div class="note__btn">
+                    <button class="btn btn-primary btn-archive js-btn-archive">Archive</button>
+                </div>`:
+                    `<div class="note__btn">
+                    <button class="btn btn-primary btn-archive js-btn-unarchive">Unarchive</button>
+                </div>`}
+                
+                <div class="note__btn">
+                    <button class="btn btn-primary js-btn-edit">View</button>
+                </div>
+                <div class="note__btn">
+                    <button class="btn btn-danger js-btn-remove">Remove</button>
+                </div>
             </div>
         </div>
     `
