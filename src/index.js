@@ -1,5 +1,6 @@
 import {notes, addNoteNow, removeNote} from "./notes.js"
-import {getNoteHTML, getAllNotesHTML} from "./rendering.js"
+import { addNoteHandler } from "./form.js"
+import {getNoteHTML, getAllNotesHTML, updateAllNotes} from "./rendering.js"
 
 console.log(notes)
 
@@ -8,5 +9,6 @@ const newidnote = addNoteNow("sdf", "sdf", "sdf")
 console.log(notes)
 console.log(removeNote(newidnote))
 console.log(notes)
-const notesList = document.querySelector("#js-notes-list")
-notesList.innerHTML += getAllNotesHTML().join("\n")
+
+updateAllNotes()
+document.querySelector(".js-input-note").addEventListener('submit', addNoteHandler);

@@ -1,14 +1,14 @@
 export const categories = [
     {
-        id: 1,
+        id: 0,
         name: "Task"
     },
     {
-        id: 2,
+        id: 1,
         name: "Random Thoughts"
     },
     {
-        id: 3,
+        id: 2,
         name: "Idea"
     }
 ]
@@ -46,14 +46,14 @@ export const notes = [
         id: chance.guid(),
         name: "The name",
         created: new Date(Date.now()),
-        category: 1, // id of category
-        content: "Something something 01/11/2020"
+        category: 2, // id of category
+        content: "Something something 01/11/2020 and something on 02/02/2022"
     },
     {
         id: chance.guid(),
         name: "The name",
         created: new Date(Date.now()),
-        category: 1, // id of category
+        category: 0, // id of category
         content: "Something something 01/11/2020"
     },
     {
@@ -108,7 +108,12 @@ export function detectDates(text) {
      * @returns array with all dates in text 
      */
     const matches = text.match(/\d{2}(\D)\d{2}\1\d{4}/g);
-    return matches.map((match) => { return new Date(match) } );
+    if (matches !== null) {
+        return matches.map((match) => { return new Date(match) });
+    }
+    else {
+        return []
+    }
 }
 
 export function removeNote(id) {
@@ -126,7 +131,7 @@ export function removeNote(id) {
 }
 
 export function editNote(id, name, category, content) {
-
+    
 }
 
 export function dateToString(date) {

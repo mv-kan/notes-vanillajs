@@ -1,3 +1,19 @@
-.note__field {
+.note {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin: 1rem;
+
+}
+.note__field {
+    display: block;
+    width: 150px;
+}
+.note__field--content {
+    width: 300px;
+}
+
+.note__btn {
+    display: flex;
+    margin: 10px;
 }
