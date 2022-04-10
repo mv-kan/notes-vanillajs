@@ -41,7 +41,7 @@ export function getNoteHTML(id) {
     const note = getNote(id)
     if (note !== null) {
         const content = note.content.length > 25 ? note.content.slice(0, 22) + '...' : note.content
-        const dates = detectDates(note.content).map((date) => dateToString(date)).join(", ")
+        const dates = detectDates(note.content).join(", ")
         return `
         <div class="note js-note " id="${note.id}">
             <span class="note__field bg-light">${note.name}</span>
