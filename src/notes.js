@@ -107,7 +107,8 @@ export function detectDates(text) {
     /**
      * @returns array with all dates in text 
      */
-    const matches = text.match(/\d{2}(\D)\d{2}\1\d{4}/g);
+    const regex = /(\d{1,4}([.\-/])\d{1,2}([.\-/])\d{1,4})/g
+    const matches = text.match(regex);
     if (matches !== null) {
         return matches.map((match) => { return new Date(match) });
     }
