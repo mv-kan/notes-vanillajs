@@ -64,7 +64,7 @@ export const notes = [
         content: "Something something 01/11/2020"
     },
     {
-        id: 0,
+        id: "0",
         name: "The name",
         created: new Date(Date.now()),
         category: 1, // id of category
@@ -74,7 +74,7 @@ export const notes = [
 
 export const archivedNotes = [
     {
-        id: 0
+        id: "0"
     }
 ]
 
