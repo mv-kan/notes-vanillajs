@@ -164,13 +164,25 @@ export function dateToString(date) {
 
 export function getNote(id) {
     /**
-     * @returns copy of note obj if exists otherwise null 
+     * @returns copy of note obj if exists, otherwise null 
      */
     const note = notes.find((note) => note.id === id)
     if (note !== undefined) {
         return {...note}
     } else {
         return null  
+    }
+}
+
+export function getCategory(id) {
+    /**
+     * @returns copy of category obj if exists, otherwise null 
+     */
+    const category = categories.find((category) => category.id === id)
+    if (category !== undefined) {
+        return { ...category }
+    } else {
+        return null
     }
 }
 
@@ -200,4 +212,33 @@ export function addToArchived(id) {
             }
         )
     }
+}
+
+export function getStats() {
+    /**
+     * {
+     *  catid
+     *  active
+     *  archived
+     * } 
+     *
+     */
+    const result = []
+    for (let i = 0; i < categories.length; i++) {
+        const categoryId = categories[i].id;
+        var active = 0
+        var archived = 0
+        for (let i = 0; i < notes.length; i++) {
+            const note = notes[i];
+            if (note.category === categoryId) {
+                isArchived(note.id) ? archived++ : active++;
+            }
+        }
+        result.push({
+            categoryId: categoryId,
+            active,
+            archived
+        })
+    }
+    return result
 }

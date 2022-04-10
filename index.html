@@ -60,12 +60,12 @@
             </form>
 
         </div>
-        <select name="" id="js-viewmode">
-            <option value="usual">Usual notes</option>
+        <select name="" class="viewmode" id="js-viewmode">
+            <option value="usual">Active notes</option>
             <option value="archived">Archived notes</option>
             <option value="all">All</option>
         </select>
-        <div class="note  bg-secondary text-white">
+        <div class="note bg-secondary text-white fw-bold">
             <span class="note__field">Name</span>
             <span class="note__field">Created</span>
             <span class="note__field">Content</span>
@@ -76,6 +76,15 @@
             </div>
         </div>
         <div id="js-notes-list">
+        </div>
+        <h2>Statistics</h2>
+        <div class="stats bg-secondary text-white fw-bold">
+            <span class="stats__field">Category</span>
+            <span class="stats__field">Active</span>
+            <span class="stats__field">Archived</span>
+        </div>
+        <div id="js-stats-list">
+
         </div>
     </div>
 

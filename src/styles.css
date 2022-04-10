@@ -28,8 +28,21 @@
 .btn-archive {
     width: 100px;
 }
+/* stats */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr) 1fr 0.5fr 1fr 1.4fr;
+    margin: 1rem 0;
+    column-gap: 10px;
+}
 
+.stats__field {
+    padding: 5px;
+    align-items: center;
+    display: flex;
+}
 
+/* form */
 .note-forms-wrapper {
     display: flex;
     justify-content: space-between;
@@ -58,4 +71,8 @@
 }
 .note-form__button-wrapper {
     
+}
+
+.viewmode {
+    margin-top: 0.5rem
 }

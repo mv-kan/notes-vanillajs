@@ -5,12 +5,37 @@ import {
     categories,
     notes,
     removeNote,
-    archivedNotes,
+    getStats,
+    getCategory,
     getNote,
     isArchived,
     removeFromArchived,
     addToArchived
 } from "./notes.js"
+
+export function getStatsHTML(record) {
+    var categoryName = getCategory(record.categoryId).name
+    var active = record.active
+    var archived = record.archived
+
+    return `
+        <div class="stats">
+            <span class="stats__field bg-light">${categoryName}</span>
+            <span class="stats__field bg-light">${active}</span>
+            <span class="stats__field bg-light">${archived}</span>
+        </div>
+    `
+}
+
+export function getAllStatsHTML() {
+    const records = getStats()
+    const recordsHTML = []
+    for (let i = 0; i < records.length; i++) {
+        const record = records[i];
+        recordsHTML.push(getStatsHTML(record))
+    }
+    return recordsHTML
+}
 
 export function getNoteHTML(id) {
     const note = getNote(id)
@@ -142,6 +167,11 @@ function renderNotes() {
     })
 }
 
+function renderStats() {
+    const statsList = document.querySelector("#js-stats-list")
+    statsList.innerHTML += getAllStatsHTML().join('\n')
+}
+
 export function updateAllNotes() {
     const notesList = document.querySelector("#js-notes-list")
     notesList.innerHTML = ""
@@ -160,8 +190,15 @@ export function updateNotes() {
     renderNotes()
 }
 
+export function udpateStats() {
+    const statsList = document.querySelector("#js-stats-list")
+    statsList.innerHTML = ""
+    renderStats()
+}
+
 export function updateCurrentNotes() {
     const viewmode = document.querySelector("#js-viewmode").value
+    udpateStats()
     switch (viewmode) {
         case "usual":
             updateNotes()
