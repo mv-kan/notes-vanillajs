@@ -1,4 +1,5 @@
 .page-layout {
+    padding-top: 2rem;
     max-width: 1200px;
     margin: auto;
 }
@@ -68,6 +69,15 @@
     margin-bottom: 1rem;
 }
 
+.note-form__button-wrapper {
+    display: flex;
+}
+
 .viewmode {
     margin-top: 0.5rem
+}
+
+.btn-edit-note {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
