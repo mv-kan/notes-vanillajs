@@ -1,3 +1,4 @@
+import { setEditForm } from "./form.js"
 import {dateToString, detectDates, categories, notes, removeNote} from "./notes.js"
 
 export function getNoteHTML(note) {
@@ -34,6 +35,9 @@ function renderAllNotes() {
     notesList.innerHTML += getAllNotesHTML().join("\n")
     // add functionality to buttons
     document.querySelectorAll(".js-note").forEach((note)=> {
+        note.querySelector(".js-btn-edit").addEventListener("click", (e) => {
+            setEditForm(note.id)
+        })
         note.querySelector(".js-btn-remove").addEventListener("click", (e) => {
             removeNote(note.id)
             updateAllNotes()

@@ -118,20 +118,33 @@ export function detectDates(text) {
 
 export function removeNote(id) {
     /**
-     * @returns index of deleted element otherwise -1 
+     * @returns id of deleted element otherwise null
      */
     const noteIndex = notes.findIndex((note)=> note.id === id)
     if (noteIndex !== -1) {
         notes.splice(noteIndex, 1)
-        return noteIndex
+        return id
     }
     else {
-        return -1
+        return null
     }
 }
 
 export function editNote(id, name, category, content) {
-    
+    /**
+     * if succeded 
+     * @returns id if success otherwise null
+     */
+    const note = notes.find((note) => note.id === id)
+    if (note !== undefined) {
+        note.name = name
+        note.category = category
+        note.content = content
+        return id 
+    }
+    else {
+        return null
+    }
 }
 
 export function dateToString(date) {
@@ -147,4 +160,8 @@ export function dateToString(date) {
         ].join('/');
     }
     return formatDate(date);
+}
+
+export function getNote(id) {
+    return {...notes.find((note)=> note.id === id)}
 }
