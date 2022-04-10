@@ -17,3 +17,34 @@
     display: flex;
     margin: 10px;
 }
+
+.note-forms-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-form__name-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.note-form__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.note-form__category-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-bottom: 1rem;
+}
+.note-form__button-wrapper {
+    
+}
+

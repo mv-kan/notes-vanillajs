@@ -1,5 +1,5 @@
 import { addNoteNow, notes, getNote, editNote } from "./notes.js";
-import { updateAllNotes } from "./rendering.js";
+import { updateCurrentNotes } from "./rendering.js";
 
 export function addNoteHandler(e) {
     var content = document.getElementById("content").value
@@ -8,7 +8,7 @@ export function addNoteHandler(e) {
     addNoteNow(name, parseInt(category), content)
     document.getElementById("content").value = ""
     document.getElementById("name").value = ""
-    updateAllNotes()
+    updateCurrentNotes()
     e.preventDefault();
 }
 
@@ -17,7 +17,7 @@ export function editNoteHandler(e) {
     var category = document.getElementById("edit-category").value
     var name = document.getElementById("edit-name").value
     editNote(this.id, name, parseInt(category), content)
-    updateAllNotes()
+    updateCurrentNotes()
     e.preventDefault();
 }
 

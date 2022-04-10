@@ -14,47 +14,61 @@
 </head>
 
 <body>
-    <form class="js-input-note">
-        <div>
-            <label for="name">Name</label>
-            <input id="name" type="text">
+    <div class="page-layout">
+        <div class="note-forms-wrapper">
+            <form class="note-form js-input-note">
+                <div class="note-form__name-wrapper">
+                    <label for="name">Name</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="note-form__content-wrapper">
+                    <label for="content">Content</label>
+                    <textarea id="content" type="text" rows="4" cols="50"></textarea>
+                </div>
+                <div class="note-form__category-wrapper">
+                    <label for="category">Category</label>
+                    <select name="" id="category">
+                        <option value="0">Task</option>
+                        <option value="1">Random Thoughts</option>
+                        <option value="2">Idea</option>
+                    </select>
+                </div>
+                <div class="note-form__button-wrapper">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+            <form class="note-form js-edit-note">
+                <div class="note-form__name-wrapper">
+                    <label for="edit-name">Name</label>
+                    <input id="edit-name" type="text">
+                </div>
+                <div class="note-form__content-wrapper">
+                    <label for="edit-content">Content</label>
+                    <textarea id="edit-content" type="text" rows="4" cols="50"></textarea>
+                </div>
+                <div class="note-form__category-wrapper">
+                    <label for="edit-category">Category</label>
+                    <select name="" id="edit-category">
+                        <option value="0">Task</option>
+                        <option value="1">Random Thoughts</option>
+                        <option value="2">Idea</option>
+                    </select>
+                </div>
+                <div class="note-form__button-wrapper">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+
         </div>
-        <div>
-            <label for="content">Content</label>
-            <input id="content" type="text">
+        <select name="" id="js-viewmode">
+            <option value="usual">Usual notes</option>
+            <option value="archived">Archived notes</option>
+            <option value="all">All</option>
+        </select>
+        <div id="js-notes-list">
         </div>
-        <div>
-            <label for="category"></label>
-            <select name="" id="category">
-                <option value="0">Task</option>
-                <option value="1">Random Thoughts</option>
-                <option value="2">Idea</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Add</button>
-    </form>
-    <form class="js-edit-note">
-        <div>
-            <label for="edit-name">Name</label>
-            <input id="edit-name" type="text">
-        </div>
-        <div>
-            <label for="edit-content">Content</label>
-            <input id="edit-content" type="text">
-        </div>
-        <div>
-            <label for="edit-category"></label>
-            <select name="" id="edit-category">
-                <option value="0">Task</option>
-                <option value="1">Random Thoughts</option>
-                <option value="2">Idea</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Edit</button>
-    </form>
-    <div></div>
-    <div id="js-notes-list">
     </div>
+
 
     <script src="http://chancejs.com/chance.min.js"></script>
 </body>

@@ -163,5 +163,41 @@ export function dateToString(date) {
 }
 
 export function getNote(id) {
-    return {...notes.find((note)=> note.id === id)}
+    /**
+     * @returns copy of note obj if exists otherwise null 
+     */
+    const note = notes.find((note) => note.id === id)
+    if (note !== undefined) {
+        return {...note}
+    } else {
+        return null  
+    }
+}
+
+export function isArchived(id) {
+    const note = getNote(id)
+    for (let i = 0; i < archivedNotes.length; i++) {
+        const record = archivedNotes[i];
+        if (note.id === record.id) {
+            return true
+        }
+    }
+    return false
+}
+
+export function removeFromArchived(id) {
+    if (isArchived(id)){
+        const i = archivedNotes.findIndex((r) => r.id === id)
+        archivedNotes.splice(i, 1)
+    }
+}
+
+export function addToArchived(id) {
+    if (!isArchived(id) && getNote(id) !== null) {
+        archivedNotes.push(
+            {
+                id
+            }
+        )
+    }
 }

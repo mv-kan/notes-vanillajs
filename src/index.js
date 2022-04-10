@@ -1,6 +1,6 @@
 import {notes, addNoteNow, removeNote} from "./notes.js"
 import { addNoteHandler, editNoteHandler } from "./form.js"
-import {updateAllNotes} from "./rendering.js"
+import {updateCurrentNotes} from "./rendering.js"
 
 console.log(notes)
 
@@ -10,6 +10,8 @@ console.log(notes)
 console.log(removeNote(newidnote))
 console.log(notes)
 
-updateAllNotes()
+updateCurrentNotes()
+
 document.querySelector(".js-input-note").addEventListener('submit', addNoteHandler);
 document.querySelector(".js-edit-note").addEventListener('submit', editNoteHandler);
+document.querySelector("#js-viewmode").addEventListener('change', updateCurrentNotes)
